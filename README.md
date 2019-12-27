@@ -2,7 +2,7 @@
 
 Ferdowsi University of Mashhad Internet hotspot login bot
 
-Due to limitation in number of IPs permitted to connect to each student ID in FUM's hotspot system, it frequently happened to me that I wanted to switch devices and needed the internet on the other device but the process of disconnecting the first one device then connecting the second one felt agonizing, so I decided to write a bot in order to automate this process.
+Due to limitation in number of IPs permitted to connect to each student ID in FUM's hotspot system, it frequently happened to me that I wanted to switch devices and needed the internet on the other device but the process of disconnecting the first one, then connecting the second one felt agonizing, so I decided to write a bot in order to automate this process.
 
 # Libraries used:
 1. requests
