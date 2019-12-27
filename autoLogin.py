@@ -10,6 +10,7 @@ def logIn(data : dict):
   if (requests.post(hotspotURL, data).status_code != 200):
     printError(r.status_code)
     exit()
+  print("Connected!")
 
 def kickUser(data : dict):
   global vpnReportLoginURL
@@ -55,4 +56,3 @@ logIn(data)
 while (ping() != 0):
   kickUser(data)
   logIn(data)
-print("Connected!")
