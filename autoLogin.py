@@ -9,6 +9,7 @@ def logIn(data : dict):
   global hotspotURL
   if (requests.post(hotspotURL, data).status_code != 200):
     printError(r.status_code)
+    exit()
 
 def kickUser(data : dict):
   global vpnReportLoginURL
