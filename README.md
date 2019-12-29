@@ -20,4 +20,4 @@ Connects or disconnects from Hotspot network.
 2. To run the file using a short command, put this line in ~/.bashrc file: alias HOTSPOT="python3 /path/to/file/autoLogin.py"
 3. Type the following command each time you want to connect to the Internet: HOTSPOT
   
-  ![Help command output](https://github.com/rezza007/HotspotAutoLogin/screenshot.png)
+  ![Help command output](https://raw.githubusercontent.com/rezza007/HotspotAutoLogin/master/screenshot.png)
