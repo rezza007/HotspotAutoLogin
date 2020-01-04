@@ -15,6 +15,6 @@ Due to limitation in number of IPs permitted to connect to each student ID in FU
 3. Type the following command each time you want to connect to the Internet: HOTSPOT
 
 # Help
- Works using CLI commands, to show complete list of supported commands use '-h' or '--help' command.
+ Works using CLI commands, to show complete list of supported commands use '-h' or '--help'.
    
   ![Help command output](https://raw.githubusercontent.com/rezza007/HotspotAutoLogin/master/screenshot.png)
