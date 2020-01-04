@@ -4,9 +4,9 @@ Ferdowsi University of Mashhad Hotspot network auto login
 
 Due to limitation in number of IPs permitted to connect to each student ID in FUM's hotspot system, it frequently happened to me that I wanted to switch devices and needed the internet on the other device but the process of disconnecting the first one, then connecting the second one felt agonizing, so I decided to write a bot in order to automate this process.
 
-# Libraries used:
-1. requests
-2. BeautifulSoup
+# Libraries
+1. requests (pip3 install requests)
+2. BeautifulSoup (pip3 install bs4)
 
 # How to use
 1. Install libraries.
