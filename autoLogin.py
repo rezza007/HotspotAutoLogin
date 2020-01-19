@@ -138,12 +138,14 @@ def hasCredit() -> bool:
   found = False
   for td in tableDatas:
     if found:
-      if(td.text == '0 UNITS'):
+      # td.text : ##### UNITS, and ' UNITS' part is 6 characters long 
+      credit = float(td.text[:-6])
+      if credit >= 0 :
         return True
       else:
         return False
-    if(td.text == 'Deposit :'):
-      found == True
+    if td.text == 'Current Credit :':
+      found = True
 
 
 # User variables
