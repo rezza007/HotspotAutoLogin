@@ -18,16 +18,25 @@ class color:
    UNDERLINE = '\033[4m'
    END = '\033[0m'
 
-def logIn() -> None:
+def logInSuccessfully() -> bool:
   global loginURL
   global data
   try:
-    if (requests.post(loginURL, data).status_code != 200):
+    r = requests.post(loginURL, data)
+    if(r.status_code != 200):
       printError(r.status_code)
-      exit()
-  except:
+      return False
+    try:
+      if(not hasCredit()):
+        print('Credit has finished')
+        return False
+      return True
+    except:
+      print('Invalid ID or Password')
+      return False
+  except: 
     print('No network available')
-    exit()
+    return False
 
 def logOut() -> None:
   global logOutURL
@@ -50,8 +59,11 @@ def kickUser() -> None:
     data['ras_ip'] = doc.find('input', {'name' : 'ras_ip'})['value']
     data['unique_id_val'] = doc.find('input', {'name' : 'unique_id_val'})['value']
   except:
-    print('Invalid ID or Password')
-    exit()
+    try:
+      doc.find('a', {'href' : '/IBSng/user/?logout=1'}).content
+    except:
+      print('Invalid ID or Password')
+      exit()
   session.post(vpnReportKillURL, data)
 
 def ping() -> int:
@@ -67,10 +79,12 @@ def doLogOut() -> None:
   print("Disconnected!")
 
 def doLogIn() -> None:
-  logIn()
-  while ping() != 0:
-    kickUser()
-    logIn()
+  if not logInSuccessfully():
+    return
+    while ping() != 0:
+      kickUser()
+      if not logInSuccessfully():
+        return
   print("Connected!")
 
 def init() -> None:
@@ -115,6 +129,22 @@ def doConfig() -> None:
       break
     else:
       print('Invalid input')
+
+def hasCredit() -> bool:
+  session = requests.session()
+  r = session.post(vpnReportLoginURL, data)
+  doc = BeautifulSoup(str(r.content), 'html.parser')
+  tableDatas = doc.find_all('td')
+  found = False
+  for td in tableDatas:
+    if found:
+      if(td.text == '0 UNITS'):
+        return True
+      else:
+        return False
+    if(td.text == 'Deposit :'):
+      found == True
+
 
 # User variables
 studentId = None
